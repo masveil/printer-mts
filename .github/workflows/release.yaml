@@ -45,21 +45,21 @@ jobs:
           $exe = Get-ChildItem "src-tauri/target/release/*.exe" | Where-Object { $_.Name -notlike "*setup*" } | Select-Object -First 1
           if (-not $exe) { Write-Error "exe hasil build tidak ketemu di src-tauri/target/release/"; exit 1 }
           Write-Host "Portable exe: $($exe.FullName)"
-          Copy-Item $exe.FullName "Printer-MTs-Portable.exe" -Force
-          Get-ChildItem "Printer-MTs-Portable*"
+          Copy-Item $exe.FullName "Pindai-MTs-Portable.exe" -Force
+          Get-ChildItem "Pindai-MTs-Portable*"
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: printer-mts-windows
-          path: Printer-MTs-Portable.exe
+          path: Pindai-MTs-Portable.exe
           if-no-files-found: error
 
       - name: Upload to GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: Printer-MTs-Portable.exe
+          files: Pindai-MTs-Portable.exe
           generate_release_notes: true
           fail_on_unmatched_files: true
         env:

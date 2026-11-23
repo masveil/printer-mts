@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Printer MTs</title>
+<title>Pindai MTs</title>
 <style>
   body { font-family: "Segoe UI", Arial, sans-serif; margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f3f4f6; color: #1f2937; }
   .card { background: #fff; border-radius: 12px; padding: 32px; max-width: 420px; width: calc(100% - 48px); text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,.08); }
@@ -14,13 +14,13 @@
 </head>
 <body>
 <div class="card">
-  <h1>Printer MTs</h1>
-  <p id="status">Membuka layanan cetak dan pindai...</p>
+  <h1>Pindai MTs</h1>
+  <p id="status">Membuka layanan pindai...</p>
   <p id="hint" style="display:none">Pastikan perangkat ini terhubung ke WiFi madrasah, lalu coba lagi.</p>
   <button id="retry" type="button">Coba lagi</button>
 </div>
 <script>
-  var ADDRESSES = ["http://printer-mts.local", "http://printer-mts.local:8080", "http://192.168.100.83", "http://192.168.100.83:8080"];
+  var ADDRESSES = ["http://printer-mts.local:8080", "http://192.168.100.83:8080"];
   function check(url, ms) {
     return new Promise(function (resolve) {
       var done = false;

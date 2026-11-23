@@ -1,9 +1,12 @@
-# Printer MTs
+# Pindai MTs
 
-Pembungkus ringan portal printer-mts.local (layanan cetak dan pindai madrasah).
+Pembungkus ringan layanan pindai madrasah (printer-mts.local:8080).
 
-- Windows 64-bit, portable (tanpa installer). Unduh zip, ekstrak, jalankan.
-- Aplikasi hanya menampilkan halaman lokal madrasah. Tidak ada data tersimpan.
+- Windows 64-bit, portable (tanpa installer). Unduh exe, jalankan.
+- Aplikasi hanya menampilkan halaman pindai. Tidak ada data tersimpan.
+- Untuk mencetak dari Windows, tambah printer jaringan dari Pengaturan
+  memakai alamat http://printer-mts.local:631/printers/L3210
+  (cadangan memakai alamat IP bila nama tidak ketemu).
 - Server cetak dan pindai tetap berjalan di perangkat STB sekolah.
 
 ## Rilis

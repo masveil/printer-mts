@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Printer MTs",
+  "productName": "Pindai MTs",
   "version": "1.0.0",
   "identifier": "com.maarifdh.printer",
   "build": {
@@ -14,7 +14,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "Printer MTs Maarif Darul Hasan",
+        "title": "Pindai MTs Maarif Darul Hasan",
         "width": 1000,
         "height": 700,
         "minWidth": 860,
@@ -37,8 +37,8 @@
       "icons/icon.png"
     ],
     "category": "Utility",
-    "shortDescription": "Layanan cetak dan pindai madrasah",
-    "longDescription": "Jendela layanan cetak dan pindai MTs Maarif Darul Hasan. Membutuhkan perangkat STB sekolah yang menyala di jaringan yang sama.",
+    "shortDescription": "Layanan pindai madrasah",
+    "longDescription": "Jendela layanan pindai MTs Maarif Darul Hasan. Untuk mencetak, tambah printer jaringan dari Pengaturan Windows. Membutuhkan perangkat STB sekolah yang menyala di jaringan yang sama.",
     "windows": {
       "webviewInstallMode": {
         "silent": true,
