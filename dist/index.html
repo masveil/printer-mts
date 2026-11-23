@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Printer MTs</title>
+<style>
+  body { font-family: "Segoe UI", Arial, sans-serif; margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #f3f4f6; color: #1f2937; }
+  .card { background: #fff; border-radius: 12px; padding: 32px; max-width: 420px; width: calc(100% - 48px); text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+  h1 { font-size: 22px; margin: 0 0 8px; }
+  p { font-size: 14px; color: #4b5563; margin: 0 0 16px; }
+  button { display: none; font-size: 15px; padding: 10px 22px; border-radius: 8px; border: 0; background: #1d4ed8; color: #fff; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Printer MTs</h1>
+  <p id="status">Membuka layanan cetak dan pindai...</p>
+  <p id="hint" style="display:none">Pastikan perangkat ini terhubung ke WiFi madrasah, lalu coba lagi.</p>
+  <button id="retry" type="button">Coba lagi</button>
+</div>
+<script>
+  var ADDRESSES = ["http://printer-mts.local", "http://192.168.100.83"];
+  function check(url, ms) {
+    return new Promise(function (resolve) {
+      var done = false;
+      var timer = setTimeout(function () {
+        if (!done) { done = true; resolve(false); }
+      }, ms);
+      fetch(url, { mode: "no-cors", cache: "no-store" })
+        .then(function () { if (!done) { done = true; clearTimeout(timer); resolve(true); } })
+        .catch(function () { if (!done) { done = true; clearTimeout(timer); resolve(false); } });
+    });
+  }
+  function open() {
+    var status = document.getElementById("status");
+    var hint = document.getElementById("hint");
+    var retry = document.getElementById("retry");
+    status.textContent = "Membuka layanan cetak dan pindai...";
+    hint.style.display = "none";
+    retry.style.display = "none";
+    (async function () {
+      for (var i = 0; i < ADDRESSES.length; i++) {
+        try {
+          var ok = await check(ADDRESSES[i], 2500);
+          if (ok) { window.location.replace(ADDRESSES[i]); return; }
+        } catch (e) {}
+      }
+      status.textContent = "Layanan belum ketemu.";
+      hint.style.display = "block";
+      retry.style.display = "inline-block";
+    })();
+  }
+  document.getElementById("retry").addEventListener("click", open);
+  open();
+</script>
+</body>
+</html>

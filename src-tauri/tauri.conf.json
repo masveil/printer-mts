@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Printer MTs",
+  "version": "1.0.0",
+  "identifier": "com.maarifdh.printer",
+  "build": {
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "label": "main",
+        "title": "Printer MTs Maarif Darul Hasan",
+        "width": 1000,
+        "height": 700,
+        "minWidth": 860,
+        "minHeight": 600,
+        "resizable": true,
+        "maximizable": true,
+        "decorations": true,
+        "devtools": false
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["portable"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico",
+      "icons/icon.png"
+    ],
+    "category": "Utility",
+    "shortDescription": "Layanan cetak dan pindai madrasah",
+    "longDescription": "Jendela layanan cetak dan pindai MTs Maarif Darul Hasan. Membutuhkan perangkat STB sekolah yang menyala di jaringan yang sama.",
+    "windows": {
+      "webviewInstallMode": {
+        "silent": true,
+        "type": "downloadBootstrapper"
+      }
+    }
+  }
+}

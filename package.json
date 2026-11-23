@@ -1,0 +1,11 @@
+{
+  "name": "printer-mts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "tauri:build": "tauri build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}
